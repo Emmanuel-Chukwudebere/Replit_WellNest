@@ -28,11 +28,12 @@ body {
   list-style: none;
   margin: 0;
   padding: 0;
+  /* These styles apply both for desktop and mobile */
 }
 
 .main-nav ul li {
-  margin-left: 100px;
-  margin-right: 100px;
+  margin-left: 20px; /* Adjust as needed for spacing */
+  margin-right: 20px;
 }
 
 .main-nav ul li a {
@@ -59,6 +60,23 @@ body {
   background-color: #0056b3;
 }
 
+.menu-toggle {
+  background-color: transparent;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #333;
+  display: none; /* Hide the button by default on mobile */
+}
+
+.menu-toggle.nav-open {
+  display: block; /* Show the button when nav-open class is applied */
+}
+
+.nav-open {
+  display: block; /* Ensure the menu is visible on mobile */
+}
+
 /* Adjusting the layout for mobile devices */
 @media (max-width: 768px) {
   .site-header {
@@ -69,23 +87,69 @@ body {
   .main-nav ul {
       flex-direction: column;
       width: 100%;
+      display: none; /* Hide the menu by default on mobile */
+  }
+
+  .main-nav ul.nav-open {
+      display: block; /* Show the menu when nav-open class is applied */
   }
 
   .main-nav ul li {
       margin: 10px 10px;
   }
 
-  .container .cta-button { /* Updated selector for better scoping */
+  .container .cta-button { 
       margin-top: 10px;
-      margin-right: 20px;
+      margin-right: 0; /* Adjust as needed for mobile spacing */
       width: 100%;
       text-align: center;
+  }
+
+  .menu-toggle {
+    display: block; /* Show the menu toggle button on mobile */
+  }
+
+  /* Hamburger Menu and "Get Started" Button Positioning */
+  .site-header .menu-toggle {
+    position: relative; 
+    right: 0;
+    top: 0; /* Adjust as needed */
+    padding: 0;
+    margin: 0;
+    z-index: 10;
+  }
+
+  /* Hamburger Menu Styles for Close Button (When Expanded) */
+  .menu-toggle.nav-open {
+    position: absolute;
+    top: 10px; /* Adjust as needed */
+    right: 10px;
+  }
+
+  /* Menu items inside the hamburger menu */
+  .main-nav ul {
+      flex-direction: column;
+      width: 100%;
+      display: none;
+      position: absolute;
+      top: 50px; /* Adjust as needed */
+      right: 0;
+      background-color: #fff;
+      padding: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  /*  "Get Started" button inside the hamburger menu */
+  .main-nav ul.nav-open .cta-button {
+      width: auto; /* Adjust as needed for button width */
+      margin: 10px 0; /* Adjust as needed for margin */
+      display: block;
   }
 }
 
 /* Styles for the main content */
 .container {
-  margin-top: 0; /* Adjusting for the fixed header */
+  margin-top: 100px; /* Adjusting for the fixed header */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -119,4 +183,26 @@ body {
 .text-section p {
   font-size: 32px;
   margin-bottom: 30px;
-}  
+}
+
+/* Hamburger menu styles */
+.hamburger-line {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 4px 0;
+  transition: transform 0.3s ease;
+}
+
+.menu-toggle.nav-open .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.nav-open .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.nav-open .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
