@@ -28,11 +28,10 @@ body {
   list-style: none;
   margin: 0;
   padding: 0;
-  /* These styles apply both for desktop and mobile */
 }
 
 .main-nav ul li {
-  margin-left: 20px; /* Adjust as needed for spacing */
+  margin-left: 20px;
   margin-right: 20px;
 }
 
@@ -54,6 +53,7 @@ body {
   text-decoration: none;
   border-radius: 100px;
   transition: background-color 0.3s ease;
+  white-space: nowrap; /* Prevent the button from overflowing */
 }
 
 .cta-button:hover {
@@ -66,90 +66,68 @@ body {
   font-size: 1.2rem;
   cursor: pointer;
   color: #333;
-  display: none; /* Hide the button by default on mobile */
+  display: none; /* Hide the button by default on desktop */
+  position: absolute;
+  top: 15px; /* Align it with the header padding */
+  right: 30px;
 }
 
 .menu-toggle.nav-open {
-  display: block; /* Show the button when nav-open class is applied */
-}
-
-.nav-open {
-  display: block; /* Ensure the menu is visible on mobile */
+  display: block;
+  z-index: 11; /* Ensure it is above other content */
 }
 
 /* Adjusting the layout for mobile devices */
 @media (max-width: 768px) {
   .site-header {
-      flex-direction: column;
-      align-items: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px; /* Adjust padding for mobile */
   }
 
   .main-nav ul {
-      flex-direction: column;
-      width: 100%;
-      display: none; /* Hide the menu by default on mobile */
+    flex-direction: column;
+    width: 100%;
+    display: none; /* Hide the menu by default on mobile */
+    position: absolute;
+    top: 70px; /* Align it below the header */
+    right: 0;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
 
   .main-nav ul.nav-open {
-      display: block; /* Show the menu when nav-open class is applied */
+    display: block; /* Show the menu when nav-open class is applied */
   }
 
   .main-nav ul li {
-      margin: 10px 10px;
-  }
-
-  .container .cta-button { 
-      margin-top: 10px;
-      margin-right: 0; /* Adjust as needed for mobile spacing */
-      width: 100%;
-      text-align: center;
+    margin: 10px 0;
+    text-align: center;
   }
 
   .menu-toggle {
     display: block; /* Show the menu toggle button on mobile */
   }
 
-  /* Hamburger Menu and "Get Started" Button Positioning */
-  .site-header .menu-toggle {
-    position: relative; 
-    right: 0;
-    top: 0; /* Adjust as needed */
-    padding: 0;
-    margin: 0;
-    z-index: 10;
-  }
-
-  /* Hamburger Menu Styles for Close Button (When Expanded) */
-  .menu-toggle.nav-open {
-    position: absolute;
-    top: 10px; /* Adjust as needed */
-    right: 10px;
-  }
-
-  /* Menu items inside the hamburger menu */
-  .main-nav ul {
-      flex-direction: column;
-      width: 100%;
-      display: none;
-      position: absolute;
-      top: 50px; /* Adjust as needed */
-      right: 0;
-      background-color: #fff;
-      padding: 10px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-
-  /*  "Get Started" button inside the hamburger menu */
+  /* Adjust "Get Started" button inside the hamburger menu */
   .main-nav ul.nav-open .cta-button {
-      width: auto; /* Adjust as needed for button width */
-      margin: 10px 0; /* Adjust as needed for margin */
-      display: block;
+    width: auto;
+    margin: 10px auto;
+    display: block;
+  }
+
+  /* Adjust the header's "Get Started" button on mobile */
+  .container .cta-button {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
   }
 }
 
 /* Styles for the main content */
 .container {
-  margin-top: 100px; /* Adjusting for the fixed header */
+  margin-top: 0; /* Adjusting for the fixed header */
   display: flex;
   justify-content: center;
   align-items: center;
