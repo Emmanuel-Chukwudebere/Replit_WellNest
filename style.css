@@ -66,6 +66,7 @@ body {
   font-size: 1.2rem;
   cursor: pointer;
   color: #333;
+  buttontext-colour: #fff;
   display: none; /* Hide the button by default on desktop */
   position: absolute;
   top: 15px; /* Align it with the header padding */
@@ -127,7 +128,7 @@ body {
 
 /* Styles for the main content */
 .container {
-  margin-top: 0; /* Adjusting for the fixed header */
+  margin-top: 100px; /* Adjusting for the fixed header */
   display: flex;
   justify-content: center;
   align-items: center;
