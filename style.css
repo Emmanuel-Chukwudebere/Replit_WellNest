@@ -132,13 +132,14 @@ body {
 
 /* Styles for the main content */
 .container {
-  margin-top: 100px; /* Adjusting for the fixed header */
+  margin-top: 0px; /* Adjusting for the fixed header */
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   position: relative;
   text-align: center;
+  padding-top: 120px;
 }
 
 .image-section img {
@@ -156,6 +157,7 @@ body {
   color: #ffffff;
   z-index: 1;
   max-width: 1240px;
+  padding: 0 16px;
 }
 
 .text-section h1 {
